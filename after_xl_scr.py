@@ -12,11 +12,11 @@ import requests
 import shutil
 
 # コメントアウトされたコード
-_='''
+
 def xl_data_upload():
     values = []
     
-    #after_xl = st.file_uploader("アフター申請書エクセルをアップロードしてください")
+    after_xl = st.file_uploader("アフター申請書エクセルをアップロードしてください")
 
     if after_xl is not None:
         file_mime = after_xl.type
@@ -30,12 +30,12 @@ def xl_data_upload():
 
                 for rect in rects:
                 #残しておきたいので取りあえずコメントアウト、あとで消す。
-                """
+                
                     points,label = rect
                     labels.append(label)
                     for point in points:
                         values.append(sheet[point].value)
-                """
+                
                     values.append(sheet[rect].value)
                 return values
 
@@ -48,14 +48,14 @@ def xl_data_upload():
             st.stop()
 
         #残しておきたいので取りあえずコメントアウト、あとで消す。
-        """
+        
         for label, value in zip(labels, values):
             st.write(f"**{label}**: {value}")
-        """
-'''
+
+=_"""
 def afterxl_dataget ():
     """
-    GitHubからExcelファイルをダウンロードし、開く関数。
+    #GitHubからExcelファイルをダウンロードし、開く関数。
     """
     xlpoints = ["AC9-1","AC9","AC11","AC13","AC15","AC17","AC19","A11","S11","AM9"]
     
@@ -90,7 +90,8 @@ def afterxl_dataget ():
 
     except Exception as e:  # 例外が発生した場合の処理
         st.error(f"エラーが発生しました: {e}")
+"""
 
 if __name__ == "__main__":
-    afterxl_dataget()
+    xl_data_upload()
 # ... (他のコードは省略)
