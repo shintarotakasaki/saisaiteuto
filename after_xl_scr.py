@@ -32,6 +32,10 @@ def xl_data_upload():
                 #残しておきたいので取りあえずコメントアウト、あとで消す。
 
                     values.append(sheet[rect].value)
+                
+                for rect, value in zip(rects, values):
+                st.write(f"{rect}: {value}")
+                
                 return values
 
             except Exception as e:
