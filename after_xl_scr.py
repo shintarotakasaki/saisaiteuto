@@ -34,7 +34,7 @@ def xl_data_upload():
                     values.append(sheet[rect].value)
                 
                 for rect, value in zip(rects, values):
-                st.write(f"{rect}: {value}")
+                    st.write(f"{rect}: {value}")
                 
                 return values
 
